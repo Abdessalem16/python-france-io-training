@@ -35,21 +35,20 @@ sortie :
 Lieur a Rueil
 Un roc si biscornu
 ______________________________________________
-def main():   
-    nombre=int(input())
+def main():
+    nbLivres = int(input())
     tab=[]
-    for loop in range(nombre):
-        nom=input()
-        test = nom.replace(" ", "").lower()
-        taille=len(test)
-        res=True
-        for i in range(taille//2):
-            if test[i]!=test[taille-1-i]:
-                res=False
-                break
-        if res:
-            tab.append(nom)
-    for j in tab:
-        print(j)
-        
+    for j in range (nbLivres):
+        texte =input()
+        texte2=texte.replace(" ", "").lower()
+        test=True
+        for i in range(len(texte2)//2):
+            if texte2[i] !=texte2[len(texte2)-i-1]:
+                test=False
+        if test:    
+            tab.append(texte)    
+    for elem in tab:
+        print(elem)      
 main()
+
+
