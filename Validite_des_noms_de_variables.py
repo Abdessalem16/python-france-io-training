@@ -38,33 +38,21 @@ YES
 NO
 NO
 _____________________
-def is_majus(c):
-    return ord(c)>=ord('A') and ord(c)<=ord('Z')
-def is_minus(c):
-    return ord(c)>=ord('a') and ord(c)<=ord('z')
-def is_int(c):
-    return ord(c)>=ord('0') and ord(c)<=ord('9')
-def is_alpha(c):
-    return is_majus(c) or is_minus(c)
-
-def main():   
-    n=int(input())
-    for i in range(n):
-        ch=input()
-        first_char = ch[0]
-        is_valide_name=is_alpha(first_char) or first_char =='_' 
-        if not is_valide_name:
+def main():
+    nbNoms=int(input())
+    for j in range (nbNoms):
+        nom=input()
+        test=True
+        if not ('a'<=nom[0]<='z' or 'A'<=nom[0]<='Z' or nom[0]=='_'):
+            test=False
+        for i in range (1,len(nom)):
+            if not ('a'<=nom[i]<='z' or 'A'<=nom[i]<='Z' or nom[i]=='_' or '0'<=nom[i]<='9') :
+                test=False
+        if test:
+            print("YES")
+        else:
             print("NO")
-            continue
-        else:
-            for i in ch:
-                if not (is_alpha(i) or is_int(i) or i=='_'):
-                    is_valide_name=False
-                    break
-        if not is_valide_name:
-            print('NO')
-        else:
-            print('YES')
-        
+
 main()
+
 
