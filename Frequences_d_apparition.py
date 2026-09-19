@@ -51,58 +51,19 @@ sortie :
 0.000000
 0.000000
 _____________________________________________
-def is_majuscule(c):
-    return ord(c)>=ord('A') and ord(c)<=ord('Z')
-def is_minuscule(c):
-    return ord(c)>=ord('a') and ord(c)<=ord('z')
-def is_int(c):
-    return ord(c)>=ord('0') and ord(c)<=ord('9')
-
-def to_upper(c):
-    a=""
-    for i in c:
-        if is_majuscule(i):
-            a+=chr(ord(i)-(ord('a')-ord('A')))
-        else:
-            a+=i
-    return a
-def to_lower(c):
-    a=""
-    for i in c:
-        if is_majuscule(i):
-            a+=chr(ord(i)+32)
-        else:
-            a+=i
-    return a
-
-def Convertir (nom):
-    return ord(nom)-ord('A')
-
-def res(nom):
-    nombre =0 
-    for char in nom:
-        nombre += Convertir(char)
-    while (nombre>9):
-        nombreAstr = str(nombre)
-        nombre =0
-        for i in nombreAstr:
-            nombre+=ord(i)-ord('0')
-    return nombre        
-     
 def main():
-    s = input()
-    s=s.upper()
-    occ = [0]*26
-    nb_total =0
-    for c in s:
-        if not c.isalpha():
-            continue
-        nb_total+=1
-        i=Convertir (c)
-        occ[i]+=1
-    for i in range (26):
-        print(occ[i]/nb_total)
-
+    text = input().upper()
+    tab = [0] * 26
+    total = 0
     
+    for i in range(len(text)):
+        if 'A'<=text[i]<='Z':
+            indice = ord(text[i])-ord('A')
+            tab[indice] +=1
+            total +=1
+    for i in range(26):
+        frequence = tab[i] /total
+        print(f"{frequence :.6f}")
 
 main()
+
